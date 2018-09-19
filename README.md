@@ -41,8 +41,94 @@ print(c > d)  # False
 ```
 
 ## <a name="avltree"></a> [AVL Tree](AVL_Tree/AVLTree.py)
-AVL tree is a balanced binary tree.
-[To be updated]
+#### Description
+AVL tree is a balanced searching binary tree.
+
+#### Example
+First we create a tree using following code:
+
+```python
+a = [6, 4, 7, 3, 5, 1, 2]
+t = AVLTree()
+
+for i in a:
+    t.put(i)
+    t.printSelf(t.root)
+    print()
+```
+The output is
+
+```python
+6 None None # 6
+
+6 4 None    #  ___6
+4 None None # |
+            # 4
+
+6 4 7       #  ___6___
+4 None None # |       |
+7 None None # 4       7
+
+6 4 7       #      ___6___
+4 3 None    #     |       |
+3 None None #  ___4       7
+7 None None # |
+            # 3
+
+6 4 7       #      ___6___
+4 3 5       #     |       |
+3 None None #  ___4__     7
+5 None None # |      |
+7 None None # 3      5
+
+4 3 6       #      ___4___
+3 1 None    #     |       |
+1 None None #  ___3     __6___
+6 5 7       # |        |      |
+5 None None # 1        5      7
+7 None None #
+
+4 2 6       #      ___4___
+2 1 3       #     |       |
+1 None None #  ___2__   __6___
+3 None None # |      | |      |
+6 5 7       # 1      3 5      7
+5 None None #
+7 None None #
+```
+
+Now we try to delete some elements from the tree:
+
+```python
+t.delete(6)
+t.printSelf(t.root)
+print()
+t.delete(4)
+t.printSelf(t.root)
+
+```
+The output is
+
+```python
+4 2 7       #      ___4___
+2 1 3       #     |       |
+1 None None #  ___2__   __7
+3 None None # |      | |
+7 5 None    # 1      3 5
+5 None None #
+
+5 2 7       #      ___5___
+2 1 3       #     |       |
+1 None None #  ___2__     7
+3 None None # |      |
+7 None None # 1      3
+```
+
+#### Reference
+
+1. [Python与数据结构[3] -> 树/Tree[2] -> AVL 平衡树和树旋转的 Python 实现](https://www.imuo.com/a/b7397a6344a573df676260358fdbca9cc0ae60ec0a9df33318e028cd5902c991)
+2. [AVL树的python实现](https://www.cnblogs.com/linxiyue/p/3659448.html)
+3. [[Python算法实现]AVL Tree](https://zhuanlan.zhihu.com/p/32336678)
 
 ## <a name="kmp"></a> [KMP](KMP/KMP.py)
 #### Description
